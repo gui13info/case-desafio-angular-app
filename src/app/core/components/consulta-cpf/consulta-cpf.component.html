@@ -12,10 +12,10 @@
             <div class="cpf__form-itens">
                 <div class="cpf__form-cpf">
                     <label for="cpf">
-                        <strong>CPF</strong>
+                        <strong>{{ labelDadosConsultaCpf.cpf }}</strong>
                     </label>
                     <input
-                        formControlName="cpf"
+                        [formControlName]="fiedlConsultaCpf.cpf"
                         id="cpf"
                         class="cpf__form-input form-control"
                         type="text"

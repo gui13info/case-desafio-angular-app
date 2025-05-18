@@ -1,20 +1,22 @@
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+
+import { clearMask } from '../../utils/generals.util';
+import { FiedlConsultaCpf } from './consulta-cpf.fields';
 
 export class ConsultaCpfForm extends FormGroup {
     private _errorMessages = {
         required: 'Campo obrigatório',
-        invalidCpf: 'CPF inválido',
-        invalidDate: 'Data inválida'
+        invalidCpf: 'Campo inválido'
     };
 
     constructor() {
         super({
-            cpf: new FormControl(null, [Validators.required])
+            [FiedlConsultaCpf.cpf]: new FormControl(null, [Validators.required, ConsultaCpfForm.validarCpf()])
         });
     }
 
     public get cpf(): AbstractControl {
-        return this.get('cpf') as AbstractControl;
+        return this.get([FiedlConsultaCpf.cpf]) as AbstractControl;
     }
 
     public getErrorControl(controlName: string): string {
@@ -27,5 +29,14 @@ export class ConsultaCpfForm extends FormGroup {
         }
 
         return '';
+    }
+
+    private static validarCpf(): ValidatorFn {
+        return (control: AbstractControl): { [key: string]: boolean } | null => {
+            const cpf = control.value;
+            const isValid = cpf ? clearMask(cpf).length === 11 : false;
+
+            return isValid ? null : { invalidCpf: true };
+        };
     }
 }
