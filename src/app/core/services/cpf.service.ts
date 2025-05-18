@@ -10,6 +10,7 @@ import { CpfInterface } from '../interfaces/cpf.interface';
 })
 export class CpfService {
     public dadosCpf = signal<CpfInterface>(null);
+    public resetForm = signal<boolean>(false);
     private readonly baseUrl = 'https://ws.hubdodesenvolvedor.com.br/v2/cpf/';
     private readonly token = '176290420ceoUmyETqG318287008';
 
@@ -23,8 +24,16 @@ export class CpfService {
         return this.dadosCpf();
     }
 
-    public getDadosByCpf(cpf: string, data: string): Observable<CpfInterface> {
-        const url = `${this.baseUrl}?cpf=${clearMask(cpf)}&data=${data}&token=${this.token}`;
+    public resetarFormulario() {
+        this.resetForm.set(true);
+    }
+
+    public confirmarReset() {
+        this.resetForm.set(false);
+    }
+
+    public getDadosByCpf(cpf: string): Observable<CpfInterface> {
+        const url = `${this.baseUrl}?cpf=${clearMask(cpf)}&data=${null}&token=${this.token}`;
 
         return this.http.get<CpfInterface>(url).pipe(
             map((response) => {
