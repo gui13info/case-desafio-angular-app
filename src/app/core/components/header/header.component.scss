@@ -59,4 +59,43 @@
             }
         }
     }
+
+    @media (max-width: 599px) {
+        &__notification {
+            &-viacredi {
+                width: 30px;
+                font-size: 10px;
+            }
+
+            &-image {
+                img {
+                    margin-top: 30%;
+                    width: 35px;
+                    height: 35px;
+                }
+            }
+        }
+
+        &__info {
+            &-title {
+                font-size: 16px;
+            }
+
+            &-subtitle {
+                font-size: 9px;
+            }
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 959px) {
+        &__info {
+            &-title {
+                font-size: 18px;
+            }
+
+            &-subtitle {
+                font-size: 9px;
+            }
+        }
+    }
 }
