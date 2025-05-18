@@ -1,0 +1,17 @@
+<footer class="footer">
+    <div class="footer__content">
+        @if (dadosCpf()) {
+            <button type="button" class="footer__content-primary btn btn-primary" (click)="novaAdmissao()">
+                Iniciar nova admissão
+            </button>
+        }
+
+        <button
+            type="button"
+            [class]="[dadosCpf() ? 'footer__content-secondary' : 'footer__content-secondary-alone', 'btn']"
+            (click)="dicasAdmissao()"
+        >
+            Dicas para admissão
+        </button>
+    </div>
+</footer>

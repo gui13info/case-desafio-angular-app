@@ -1,0 +1,58 @@
+@import 'src/app/core/styles/_colors.scss';
+
+.footer {
+    margin-top: 10%;
+
+    &__content {
+        &-primary {
+            background-color: $primary-color;
+            border-radius: 4px;
+            margin-top: 20px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &-secondary {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            background-color: #fff;
+            border-radius: 4px;
+            margin: 20px 0 0 20px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+
+        &-secondary-alone {
+            border: 1px solid $primary-color;
+            color: $primary-color;
+            background-color: #fff;
+            border-radius: 4px;
+            margin-top: 20px;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    @media (max-width: 599px) {
+        &__content {
+            display: flex;
+            flex-direction: column;
+
+            &-primary,
+            &-secondary,
+            &-secondary-alone {
+                width: 70%;
+            }
+
+            &-secondary {
+                margin: 20px 0 0 0;
+            }
+        }
+    }
+}
