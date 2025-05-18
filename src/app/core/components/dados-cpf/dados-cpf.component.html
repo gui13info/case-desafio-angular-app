@@ -1,0 +1,73 @@
+@if (dadosCpf()) {
+    <div class="card-container">
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-title>Situação cadastral do CPF</mat-card-title>
+                    <mat-card-subtitle>Consulta na Receica Federal</mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card__dados">
+                    <i class="card__dados-icon material-icons"> account_circle </i>
+                    <p class="card__dados-nome">
+                        <small>Nome</small>
+                        <strong>{{ dadosCpf().result.nome_da_pf }}</strong>
+                    </p>
+                </div>
+
+                <div class="card__situacao">
+                    <i class="card__situacao-icon material-icons"> check_circle </i>
+                    <p class="card__situacao-nome">
+                        <small>Situação do CPF</small>
+                        <strong>{{ dadosCpf().result.situacao_cadastral }}</strong>
+                    </p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-title>Conta aplicação</mat-card-title>
+                    <mat-card-subtitle>Cooperativa Viacredi</mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card__dados">
+                    <i class="card__dados-icon material-icons"> account_balance_wallet </i>
+                    <p class="card__dados-nome">
+                        <small>Número da conta</small>
+                        <strong>557932-4</strong>
+                    </p>
+                </div>
+
+                <div class="card__conta">
+                    <p class="card__conta-text" (click)="duplicar()">Duplicar conta</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title-group>
+                    <mat-card-title>Conta corrente</mat-card-title>
+                    <mat-card-subtitle>Cooperativa Viacredi</mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="card__dados">
+                    <i class="card__dados-icon material-icons"> account_balance_wallet </i>
+                    <p class="card__dados-nome">
+                        <small>Número da conta</small>
+                        <strong>778461-8</strong>
+                    </p>
+                </div>
+
+                <div class="card__conta">
+                    <p class="card__conta-text" (click)="duplicar()">Duplicar conta</p>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+}
