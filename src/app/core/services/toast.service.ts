@@ -8,7 +8,7 @@ import { ToastInterface } from '../interfaces/toast.interface';
     providedIn: 'root'
 })
 export class ToastService {
-    private _toast = signal<ToastInterface | null>(null);
+    private _toast = signal<ToastInterface>(null);
     public readonly toast = this._toast.asReadonly();
 
     constructor(private snackBar: MatSnackBar) {

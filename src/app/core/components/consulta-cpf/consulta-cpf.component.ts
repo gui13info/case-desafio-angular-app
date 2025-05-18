@@ -1,14 +1,14 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Component, signal, ViewEncapsulation } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { finalize, take } from 'rxjs';
 
+import { ConsultaCpfForm } from './consulta-cpf.form';
 import { CpfService } from '../../services/cpf.service';
-import { CpfMaskDirective } from '../../../shared/directives/cpf-mask.directive';
 import { ToastService } from '../../services/toast.service';
 import { CpfInterface } from '../../interfaces/cpf.interface';
-import { ConsultaCpfForm } from './consulta-cpf.form';
+import { CpfMaskDirective } from '../../../../app/shared/directives/cpf-mask.directive';
 
 @Component({
     selector: 'app-consulta-cpf',
@@ -44,7 +44,7 @@ export class ConsultaCpfComponent {
             this.isLoading.set(true);
 
             this.cpfService
-                .getDadosCpf(this.form.value.cpf, this.form.value.data)
+                .getDadosByCpf(this.form.value.cpf, this.form.value.data)
                 .pipe(
                     take(1),
                     finalize(() => {
@@ -54,6 +54,7 @@ export class ConsultaCpfComponent {
                 .subscribe({
                     next: (response: CpfInterface) => {
                         this.dadosCpf = response;
+                        this.cpfService.setDadosCpf(this.dadosCpf);
                     },
                     error: (error) => {
                         this.toastService.showMessage(`${error}`);

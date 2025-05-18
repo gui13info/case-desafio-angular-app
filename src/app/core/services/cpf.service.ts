@@ -1,21 +1,29 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { catchError, map, Observable, throwError } from 'rxjs';
 
 import { clearMask } from '../utils/generals.util';
 import { CpfInterface } from '../interfaces/cpf.interface';
-
 @Injectable({
     providedIn: 'root'
 })
 export class CpfService {
+    public dadosCpf = signal<CpfInterface>(null);
     private readonly baseUrl = 'https://ws.hubdodesenvolvedor.com.br/v2/cpf/';
     private readonly token = '176290420ceoUmyETqG318287008';
 
     constructor(private http: HttpClient) {}
 
-    public getDadosCpf(cpf: string, data: string): Observable<CpfInterface> {
+    public setDadosCpf(dados: CpfInterface) {
+        this.dadosCpf.set(dados);
+    }
+
+    public getDadosCpf() {
+        return this.dadosCpf();
+    }
+
+    public getDadosByCpf(cpf: string, data: string): Observable<CpfInterface> {
         const url = `${this.baseUrl}?cpf=${clearMask(cpf)}&data=${data}&token=${this.token}`;
 
         return this.http.get<CpfInterface>(url).pipe(
