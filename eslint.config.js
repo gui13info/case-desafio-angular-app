@@ -100,6 +100,7 @@ module.exports = [
             'import/resolver': {
                 typescript: {
                     project: './tsconfig.json',
+                    tsconfigRootDir: __dirname,
                     alwaysTryTypes: true
                 }
             }
