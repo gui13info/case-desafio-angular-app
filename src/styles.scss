@@ -1,4 +1,53 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.loading-icon {
+    display: inline-flex;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin: 0 0 4px 4px;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.mat-simple-snackbar {
+    color: inherit !important;
+}
+
+.toast-danger {
+    background-color: #f8d7da !important;
+    color: #842029 !important;
+    font-weight: bold;
+    border: 1px solid #f5c2c7;
+    padding: 0.75rem 1.25rem;
+    margin: 1rem 0 0 0;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+}
+
+.toast-success {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    font-weight: bold;
+    border: 1px solid #c3e6cb;
+}
+
+.toast-warning {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+    font-weight: bold;
+    border: 1px solid #ffeeba;
+}
