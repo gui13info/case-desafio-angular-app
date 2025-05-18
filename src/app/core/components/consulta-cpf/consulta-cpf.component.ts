@@ -1,5 +1,5 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { Component, signal, ViewEncapsulation } from '@angular/core';
+import { Component, effect, signal, ViewEncapsulation } from '@angular/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { finalize, take } from 'rxjs';
@@ -8,6 +8,7 @@ import { ConsultaCpfForm } from './consulta-cpf.form';
 import { CpfService } from '../../services/cpf.service';
 import { ToastService } from '../../services/toast.service';
 import { CpfInterface } from '../../interfaces/cpf.interface';
+import { FiedlConsultaCpf, LabelDadosConsultaCpf } from './consulta-cpf.fields';
 import { CpfMaskDirective } from '../../../../app/shared/directives/cpf-mask.directive';
 
 @Component({
@@ -21,12 +22,16 @@ import { CpfMaskDirective } from '../../../../app/shared/directives/cpf-mask.dir
 export class ConsultaCpfComponent {
     public isLoading = signal(false);
     public dadosCpf: CpfInterface;
+    public fiedlConsultaCpf = FiedlConsultaCpf;
+    public labelDadosConsultaCpf = LabelDadosConsultaCpf;
     private readonly _consultaCpfForm = signal<ConsultaCpfForm>(new ConsultaCpfForm());
 
     constructor(
         private toastService: ToastService,
         private cpfService: CpfService
-    ) {}
+    ) {
+        this.resetForm();
+    }
 
     public get form(): ConsultaCpfForm {
         return this._consultaCpfForm();
@@ -44,7 +49,7 @@ export class ConsultaCpfComponent {
             this.isLoading.set(true);
 
             this.cpfService
-                .getDadosByCpf(this.form.value.cpf, this.form.value.data)
+                .getDadosByCpf(this.form.cpf.value)
                 .pipe(
                     take(1),
                     finalize(() => {
@@ -61,5 +66,18 @@ export class ConsultaCpfComponent {
                     }
                 });
         }
+    }
+
+    private resetForm(): void {
+        effect(
+            () => {
+                if (this.cpfService.resetForm()) {
+                    this.form.reset();
+                    this.cpfService.confirmarReset();
+                    this.cpfService.setDadosCpf(null);
+                }
+            },
+            { allowSignalWrites: true }
+        );
     }
 }
