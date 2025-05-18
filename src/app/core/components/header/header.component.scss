@@ -1,0 +1,60 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    width: 96%;
+    margin-left: 100px;
+
+    &__info {
+        color: #000;
+
+        &-title {
+            margin-bottom: -12px;
+        }
+
+        &-subtitle {
+            font-size: 12px;
+            font-weight: 100;
+        }
+    }
+
+    &__notification {
+        display: flex;
+        color: #005c7f;
+        width: 300px;
+        user-select: none;
+
+        &-icon {
+            margin: 14px 20px 0 0;
+        }
+
+        &-viacredi {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #005c7f;
+            border-radius: 50px;
+
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: center;
+
+            width: 85px;
+            height: 10px;
+            padding: 8px 15px;
+            margin: 14px 20px 0 0;
+        }
+
+        &-image {
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
