@@ -1,0 +1,53 @@
+<div class="cpf">
+    <div class="cpf__info">
+        <h2 class="cpf__info-title">Informe o CPF do futuro cooperado (a)</h2>
+        <span class="cpf__info-subtitle">
+            Se necessáno,vocé podera duplicar uma conta existente ou pausare retomar este cadastro futuramente. <br />
+            Digte apenas os números (sem pontos ou traços).
+        </span>
+    </div>
+
+    <form [formGroup]="form" class="cpf__form">
+        <div class="form-group">
+            <div class="cpf__form-itens">
+                <div class="cpf__form-cpf">
+                    <label for="cpf">
+                        <strong>CPF</strong>
+                    </label>
+                    <input
+                        formControlName="cpf"
+                        id="cpf"
+                        class="cpf__form-input form-control"
+                        type="text"
+                        placeholder="000.000.000-00"
+                        appCpfMask
+                    />
+                </div>
+
+                <button
+                    type="button"
+                    class="cpf__form-button btn btn-primary"
+                    [disabled]="isLoading()"
+                    (click)="consultarCpf()"
+                >
+                    Consultar por CPF
+                    @if (isLoading()) {
+                        <i class="loading-icon">
+                            <mat-progress-spinner
+                                color="accent"
+                                mode="indeterminate"
+                                diameter="20"
+                                strokeWidth="3"
+                            ></mat-progress-spinner>
+                        </i>
+                    }
+                </button>
+            </div>
+            @if (formInvalid('cpf')) {
+                <div class="cpf__form-danger">
+                    <span>{{ form.getErrorControl('cpf') }}</span>
+                </div>
+            }
+        </div>
+    </form>
+</div>
