@@ -1,3 +1,5 @@
+@import 'src/app/core/styles/_colors.scss';
+
 .header {
     display: flex;
     flex-direction: row;
@@ -22,7 +24,7 @@
 
     &__notification {
         display: flex;
-        color: #005c7f;
+        color: $primary-color;
         width: 300px;
         user-select: none;
 
@@ -35,7 +37,7 @@
             align-items: center;
             justify-content: center;
 
-            border: 1px solid #005c7f;
+            border: 1px solid $primary-color;
             border-radius: 50px;
 
             font-weight: bold;

@@ -1,3 +1,5 @@
+@import 'src/app/core/styles/_colors.scss';
+
 .cpf {
     margin-top: 60px;
 
@@ -37,9 +39,53 @@
         }
 
         &-button {
-            background-color: #005c7f;
+            background-color: $primary-color;
             border-radius: 4px;
             margin: 20px 0 0 20px;
+        }
+    }
+
+    @media (max-width: 599px) {
+        &__info {
+            &-subtitle {
+                display: block;
+                width: 80%;
+            }
+        }
+
+        &__form {
+            &-itens {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            &-button {
+                background-color: $primary-color;
+                border-radius: 4px;
+                margin: 20px 0 0 0;
+            }
+        }
+    }
+
+    @media (min-width: 600px) and (max-width: 959px) {
+        &__info {
+            &-subtitle {
+                display: block;
+                width: 80%;
+            }
+        }
+
+        &__form {
+            &-itens {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            &-button {
+                background-color: $primary-color;
+                border-radius: 4px;
+                margin: 20px 0 0 0;
+            }
         }
     }
 }

@@ -6,4 +6,16 @@
     width: 95%;
     padding-top: 20px;
     padding-left: 125px;
+
+    @media (max-width: 599px) {
+        width: 92%;
+    }
+
+    @media (min-width: 600px) and (max-width: 959px) {
+        width: 93%;
+    }
+
+    @media (min-width: 960px) and (max-width: 1279px) {
+        width: 94%;
+    }
 }
