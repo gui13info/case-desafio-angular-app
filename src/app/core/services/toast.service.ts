@@ -1,4 +1,4 @@
-import { effect, Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { StyleEnum } from '../enums/toast.enum';
@@ -8,24 +8,25 @@ import { ToastInterface } from '../interfaces/toast.interface';
     providedIn: 'root'
 })
 export class ToastService {
-    private _toast = signal<ToastInterface>(null);
-    public readonly toast = this._toast.asReadonly();
+    private toastMessage: ToastInterface | null = null;
 
-    constructor(private snackBar: MatSnackBar) {
-        effect(() => {
-            const msg = this.toast();
-            if (msg) {
-                this.snackBar.open(msg.message, '', {
-                    duration: msg.duration ?? 3000,
-                    horizontalPosition: 'right',
-                    verticalPosition: 'top',
-                    panelClass: [`toast-${msg.type}`]
-                });
-            }
-        });
-    }
+    constructor(private snackBar: MatSnackBar) {}
 
     public showMessage(message: string, type: StyleEnum = StyleEnum.danger, duration = 3000) {
-        this._toast.set({ message, type, duration });
+        this.toastMessage = { message, type, duration };
+        this.displayMessage();
+    }
+
+    private displayMessage(): void {
+        if (this.toastMessage) {
+            this.snackBar.open(this.toastMessage.message, '', {
+                duration: this.toastMessage.duration,
+                horizontalPosition: 'right',
+                verticalPosition: 'top',
+                panelClass: [`toast-${this.toastMessage.type}`]
+            });
+
+            this.toastMessage = null;
+        }
     }
 }
