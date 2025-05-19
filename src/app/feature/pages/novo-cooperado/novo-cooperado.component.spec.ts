@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NovoCooperadoComponent } from './novo-cooperado.component';
@@ -8,7 +9,7 @@ describe('NovoCooperadoComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [NovoCooperadoComponent]
+            imports: [NovoCooperadoComponent, HttpClientModule]
         }).compileComponents();
 
         fixture = TestBed.createComponent(NovoCooperadoComponent);
@@ -16,7 +17,7 @@ describe('NovoCooperadoComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('(U) Deve ser criado o component NovoCooperadoComponent', () => {
         expect(component).toBeTruthy();
     });
 });

@@ -16,7 +16,7 @@ describe('StepperComponent', () => {
         fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('(U) Deve ser criado o component StepperComponent', () => {
         expect(component).toBeTruthy();
     });
 });
