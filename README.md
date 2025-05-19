@@ -18,7 +18,7 @@ cd case-desafio-angular-app
 npm install
 
 #Execute o projeto localmente
-npm run start ou ng serve
+npm run start
 
 #Para acessar a página local do projeto
 Abra http://localhost:4200 em seu navegador
