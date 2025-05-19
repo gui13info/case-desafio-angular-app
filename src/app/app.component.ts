@@ -12,6 +12,4 @@ import { SidebarComponent } from './core/components/sidebar/sidebar.component';
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
-export class AppComponent {
-    title = 'case-desafio-angular-app';
-}
+export class AppComponent {}
