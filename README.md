@@ -29,7 +29,7 @@ npm run test
 
 <br />
 
-## :rocket: Tecnologias usadas:
+## :rocket: Tecnologias e ferramentas usadas:
 
 - HTML5
 - CSS3 / SCSS
@@ -37,4 +37,5 @@ npm run test
 - Angular Material
 - Angular 17
 - TypeScript
-- Jarmine e Karma para teste unitário
+- Jarmine e Karma para testes unitários
+- Prettier e ESLint
