@@ -25,7 +25,7 @@ export class ConsultaCpfForm extends FormGroup {
         if (control && control.errors) {
             const errorKey = Object.keys(control.errors)[0] as keyof typeof this._errorMessages;
 
-            return this._errorMessages[errorKey] ?? 'Erro desconhecido';
+            return this._errorMessages[errorKey];
         }
 
         return '';

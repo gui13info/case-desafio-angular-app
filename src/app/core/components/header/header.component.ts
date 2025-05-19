@@ -14,8 +14,8 @@ import { RotasEnum } from '../../enums/rotas.enum';
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-    public title = 'Cooperativa de Crédito';
-    public subtitle = 'Sistema de Gestão de Cooperados';
+    public title: string;
+    public subtitle: string;
     private routeSubscription: Subscription;
 
     constructor(private router: Router) {}

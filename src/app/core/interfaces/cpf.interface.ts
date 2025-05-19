@@ -2,7 +2,7 @@ export interface CpfInterface {
     status: boolean;
     return: string;
     consumed: number;
-    message: string;
+    message?: string;
     result: ResultInterface;
 }
 
