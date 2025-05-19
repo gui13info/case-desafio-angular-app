@@ -1,9 +1,9 @@
 export interface CpfInterface {
     status: boolean;
     return: string;
-    consumed: number;
+    consumed?: number;
     message?: string;
-    result: ResultInterface;
+    result?: ResultInterface;
 }
 
 interface ResultInterface {
