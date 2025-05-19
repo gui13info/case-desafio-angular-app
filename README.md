@@ -5,6 +5,8 @@ front-end.
 
 ## :computer: Como executar o projeto:
 
+Necessário estar com o NODE, no mínimo, na versão 20.11.1.
+
 Considerando que você já possui o Node na versão compatível com o Angular 17, além do próprio Angular 17 instalado, siga os passos abaixo:
 
 ```sh
