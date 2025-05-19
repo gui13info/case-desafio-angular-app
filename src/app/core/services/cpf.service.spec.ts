@@ -21,7 +21,7 @@ describe('CpfService', () => {
         service = TestBed.inject(CpfService);
         httpTestingController = TestBed.inject(HttpTestingController);
         baseUrl = 'https://ws.hubdodesenvolvedor.com.br/v2/cpf/';
-        token = '176290420ceoUmyETqG318287008';
+        token = '176382930MPKOdrmbGR318454032';
         url = `${baseUrl}?cpf=12345678901&data=null&token=${token}`;
     });
 

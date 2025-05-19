@@ -12,7 +12,7 @@ export class CpfService {
     public dadosCpf = signal<CpfInterface>(null);
     public resetForm = signal<boolean>(false);
     private readonly baseUrl = 'https://ws.hubdodesenvolvedor.com.br/v2/cpf/';
-    private readonly token = '176290420ceoUmyETqG318287008';
+    private readonly token = '176382930MPKOdrmbGR318454032';
 
     constructor(private http: HttpClient) {}
 
