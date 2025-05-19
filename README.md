@@ -9,7 +9,7 @@ Considerando que você já possui o Node na versão compatível com o Angular 17
 
 ```sh
 #Clone o repositório
-https://github.com/gui13info/case-desafio-angular-app.git
+git clone https://github.com/gui13info/case-desafio-angular-app.git
 
 #Entre na pasta
 cd case-desafio-angular-app
