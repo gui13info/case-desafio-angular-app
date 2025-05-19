@@ -8,7 +8,7 @@
         "watch": "ng build --watch --configuration development",
         "test": "ng test",
         "lint": "eslint src/app/**/*.ts",
-        "lint:fix": "eslint src/app/**/*.ts --fix"
+        "lint:fix": "npx prettier --write **/*.ts && eslint src/app/**/*.ts --fix"
     },
     "private": true,
     "dependencies": {
